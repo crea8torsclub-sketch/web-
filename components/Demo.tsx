@@ -69,10 +69,10 @@ export default function Demo() {
             ) : (
               // Embedded YouTube Iframe
               <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                className="w-full h-full rounded"
+                src="https://www.youtube.com/embed/aPT_omPh6p8?autoplay=1&loop=1&playlist=aPT_omPh6p8"
                 title="Crea8.AI Module 04 Walkthrough Preview"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; encrypted-media"
                 allowFullScreen
               ></iframe>
             )}

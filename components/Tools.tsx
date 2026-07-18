@@ -1,20 +1,53 @@
+'use client';
+
+import { useState } from 'react';
+
+interface ToolIconProps {
+  name: string;
+  domain: string;
+  initial: string;
+}
+
+function ToolIcon({ name, domain, initial }: ToolIconProps) {
+  const [hasError, setHasError] = useState(false);
+  const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+
+  if (hasError) {
+    return (
+      <span className="font-space font-extrabold text-brand-cyan text-xl tracking-tight select-none">
+        {initial}
+      </span>
+    );
+  }
+
+  return (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={faviconUrl}
+      alt={`${name} logo`}
+      className="w-10 h-10 object-contain relative z-10"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 export default function Tools() {
   const toolsList = [
-    { name: 'ChatGPT', initial: 'C' },
-    { name: 'Grok', initial: 'G' },
-    { name: 'ElevenLabs', initial: 'E' },
-    { name: 'Higgsfield', initial: 'H' },
-    { name: 'Wan AI', initial: 'W' },
-    { name: 'Gemini', initial: 'G' },
-    { name: 'Google Veo', initial: 'V' },
-    { name: 'Pixverse AI', initial: 'P' },
-    { name: 'Heygen', initial: 'H' },
-    { name: 'AI Studio', initial: 'A' },
-    { name: 'Nano Banana', initial: 'N' },
-    { name: 'Claude', initial: 'C' },
-    { name: 'Hedra', initial: 'H' },
-    { name: 'Google Flow', initial: 'F' },
-    { name: 'Synthesia', initial: 'S', isSynthesia: true },
+    { name: 'ChatGPT', initial: 'C', domain: 'openai.com' },
+    { name: 'Grok', initial: 'G', domain: 'grok.com' },
+    { name: 'ElevenLabs', initial: 'E', domain: 'elevenlabs.io' },
+    { name: 'Higgsfield', initial: 'H', domain: 'higgsfield.ai' },
+    { name: 'Wan AI', initial: 'W', domain: 'wan.video' },
+    { name: 'Gemini', initial: 'G', domain: 'gemini.google.com' },
+    { name: 'Google Veo', initial: 'V', domain: 'labs.google' },
+    { name: 'Pixverse AI', initial: 'P', domain: 'pixverse.ai' },
+    { name: 'Heygen', initial: 'H', domain: 'heygen.com' },
+    { name: 'AI Studio', initial: 'A', domain: 'aistudio.google.com' },
+    { name: 'Nano Banana', initial: 'N', domain: 'gemini.google.com' },
+    { name: 'Claude', initial: 'C', domain: 'claude.ai' },
+    { name: 'Hedra', initial: 'H', domain: 'hedra.com' },
+    { name: 'Google Flow', initial: 'F', domain: 'labs.google' },
+    { name: 'Synthesia', initial: 'S', domain: 'synthesia.io', isSynthesia: true },
   ];
 
   return (
@@ -45,13 +78,11 @@ export default function Tools() {
                   : ''
               }`}
             >
-              {/* Neutral Icon Placeholder */}
+              {/* Neutral Icon Placeholder Slot */}
               <div className="w-14 h-14 rounded-md bg-gradient-to-br from-brand-blue/15 to-brand-cyan/5 border border-white/[0.05] flex items-center justify-center shadow-inner relative overflow-hidden group-hover:border-brand-cyan/30 transition-colors">
                 {/* Visual grid backdrop inside placeholder */}
                 <div className="absolute inset-0 bg-grid opacity-10" />
-                <span className="font-space font-extrabold text-brand-cyan text-xl tracking-tight select-none">
-                  {tool.initial}
-                </span>
+                <ToolIcon name={tool.name} domain={tool.domain} initial={tool.initial} />
               </div>
 
               {/* Tool Name */}
