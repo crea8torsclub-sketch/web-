@@ -25,10 +25,9 @@ export default function Footer() {
           <div className="md:col-span-6 flex flex-col justify-between">
             <div>
               {/* Logo */}
-              <a href="#" className="font-space font-bold text-xl tracking-wider text-brand-text-primary flex items-center gap-1 hover:opacity-90 mb-4">
-                <span className="text-brand-blue font-mono font-extrabold">&lt;</span>
-                CREA8.AI
-                <span className="text-brand-cyan font-mono font-extrabold">/&gt;</span>
+              <a href="#" className="flex items-center hover:opacity-90 mb-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logo.png" alt="Crea8.AI" className="h-7 w-auto object-contain" />
               </a>
               <p className="text-sm text-brand-text-muted max-w-sm leading-relaxed mb-6 font-sans">
                 Master-level AI content skills for creators, marketers, and entrepreneurs

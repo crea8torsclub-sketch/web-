@@ -64,10 +64,9 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-space font-bold text-xl tracking-wider text-brand-text-primary flex items-center gap-1 hover:opacity-90">
-          <span className="text-brand-blue font-mono font-extrabold">&lt;</span>
-          CREA8.AI
-          <span className="text-brand-cyan font-mono font-extrabold">/&gt;</span>
+        <a href="#" className="flex items-center hover:opacity-90">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Crea8.AI" className="h-8 w-auto object-contain" />
         </a>
 
         {/* Desktop Navigation */}
