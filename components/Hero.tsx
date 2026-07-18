@@ -38,14 +38,14 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
           <a
             href="#enroll"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-brand-blue hover:bg-brand-blue/95 text-base font-space font-bold text-brand-text-primary border border-brand-cyan/20 hover:border-brand-cyan/50 hover:shadow-[0_0_20px_rgba(56,217,255,0.3)] transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-brand-blue hover:bg-brand-blue/95 text-base font-space font-bold text-brand-text-primary border border-brand-cyan/20 hover:border-brand-cyan/50 hover:shadow-[0_0_25px_rgba(56,217,255,0.4)] transition-all duration-150 hover:scale-[1.02] active:scale-[0.97]"
           >
             Enroll Now
             <ArrowRight size={18} className="text-brand-cyan" />
           </a>
           <a
             href="#demo"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-brand-panel text-base font-space font-bold text-brand-text-primary border border-white/5 hover:border-brand-cyan/30 hover:bg-white/[0.02] transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-brand-panel text-base font-space font-bold text-brand-text-primary border border-white/5 hover:border-brand-cyan/30 hover:bg-white/[0.02] hover:shadow-[0_0_20px_rgba(56,217,255,0.15)] transition-all duration-150 hover:scale-[1.02] active:scale-[0.97]"
           >
             <Play size={16} className="fill-brand-cyan text-brand-cyan" />
             Watch Demo

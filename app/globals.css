@@ -27,12 +27,22 @@ body {
   color: #EAEEF7;
 }
 
-/* Custom background grid */
+/* Custom background grid with slow drift animation */
 .bg-grid {
   background-size: 60px 60px;
   background-image: 
     linear-gradient(to right, rgba(56, 217, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(56, 217, 255, 0.02) 1px, transparent 1px);
+  animation: grid-drift 40s linear infinite;
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 60px 60px;
+  }
 }
 
 /* Radial Glows */
@@ -64,12 +74,13 @@ body {
 /* Custom utility for hairline borders that light up on hover */
 .hairline-border {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .hairline-border:hover {
   border-color: rgba(56, 217, 255, 0.3);
   box-shadow: 0 0 15px rgba(56, 217, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 /* Smooth custom details transition for accordion */
@@ -80,7 +91,19 @@ details[name="faq-accordion"] summary::-webkit-details-marker {
   display: none;
 }
 
-/* For browsers that don't support mutual details (fallback) */
-details[name="faq-accordion"] {
-  transition: all 0.3s ease;
+/* WhatsApp Pulse Ring Animation */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-whatsapp-pulse {
+  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

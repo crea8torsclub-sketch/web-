@@ -36,8 +36,8 @@ export default function FAQ() {
           <span className="font-mono text-xs font-bold text-brand-cyan tracking-widest uppercase mb-4 block">
             ❓ QUESTIONS
           </span>
-          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4">
-            Things you&apos;ll want to know
+          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4 leading-tight">
+            നിങ്ങൾ അറിയാൻ ആഗ്രഹിക്കുന്ന കാര്യങ്ങൾ
           </h2>
         </div>
 

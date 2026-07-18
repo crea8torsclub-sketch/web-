@@ -44,8 +44,8 @@ export default function Testimonials() {
           <span className="font-mono text-xs font-bold text-brand-cyan tracking-widest uppercase mb-4 block">
             💬 STUDENT RESULTS
           </span>
-          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4">
-            What creators are saying
+          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4 leading-tight">
+            അഭിപ്രായം
           </h2>
           <p className="text-base md:text-lg text-brand-text-muted font-sans leading-relaxed">
             Real people, real workflows, real momentum after Crea8.AI.

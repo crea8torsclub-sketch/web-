@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase';
 // CONFIGURATION: Set your WhatsApp Number here
 // (International format, numbers only, no "+", no spaces/dashes)
 // ==========================================
-export const WHATSAPP_NUMBER = '910000000000';
+export const WHATSAPP_NUMBER = '918594075550';
 
 export default function Enroll() {
   const [fullName, setFullName] = useState('');
@@ -90,7 +90,7 @@ export default function Enroll() {
               🚀 ENROLL TODAY
             </span>
             <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-6 leading-tight">
-              What are you waiting for?
+              ഇനി എന്തിന് കാത്തിരിക്കണം
             </h2>
             <p className="text-base md:text-lg text-brand-text-muted mb-10 leading-relaxed font-sans">
               Join 1000+ creators building a faster, smarter content engine.
@@ -224,7 +224,7 @@ export default function Enroll() {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-lg bg-brand-blue hover:bg-brand-blue/95 font-space font-bold text-base text-brand-text-primary border border-brand-cyan/20 hover:border-brand-cyan/50 hover:shadow-[0_0_15px_rgba(56,217,255,0.2)] transition-all duration-300 uppercase tracking-wider cursor-pointer"
+                  className="w-full py-4 rounded-lg bg-brand-blue hover:bg-brand-blue/95 font-space font-bold text-base text-brand-text-primary border border-brand-cyan/20 hover:border-brand-cyan/50 hover:shadow-[0_0_20px_rgba(56,217,255,0.35)] transition-all duration-150 hover:scale-[1.02] active:scale-[0.97] uppercase tracking-wider cursor-pointer"
                 >
                   ENROLL
                 </button>
