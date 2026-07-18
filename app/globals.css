@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-dark: #05060A;
+  --color-brand-panel: #0B0E16;
+  --color-brand-blue: #2F6FFF;
+  --color-brand-cyan: #38D9FF;
+  --color-brand-text-primary: #EAEEF7;
+  --color-brand-text-muted: #8892A6;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-space: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+/* Base style resets */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #05060A;
+  color: #EAEEF7;
+}
+
+/* Custom background grid */
+.bg-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 217, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 217, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Radial Glows */
+.bg-glow-cyan {
+  background: radial-gradient(circle, rgba(56, 217, 255, 0.06) 0%, transparent 70%);
+}
+
+.bg-glow-blue {
+  background: radial-gradient(circle, rgba(47, 111, 255, 0.06) 0%, transparent 70%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05060A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(47, 111, 255, 0.15);
+  border-radius: 4px;
+  border: 2px solid #05060A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 217, 255, 0.4);
+}
+
+/* Custom utility for hairline borders that light up on hover */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hairline-border:hover {
+  border-color: rgba(56, 217, 255, 0.3);
+  box-shadow: 0 0 15px rgba(56, 217, 255, 0.05);
+}
+
+/* Smooth custom details transition for accordion */
+details[name="faq-accordion"] summary {
+  list-style: none;
+}
+details[name="faq-accordion"] summary::-webkit-details-marker {
+  display: none;
+}
+
+/* For browsers that don't support mutual details (fallback) */
+details[name="faq-accordion"] {
+  transition: all 0.3s ease;
 }
