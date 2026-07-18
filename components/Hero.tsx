@@ -53,7 +53,7 @@ export default function Hero() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto border border-white/[0.05] bg-brand-panel/40 backdrop-blur-sm p-8 rounded-lg relative overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto border border-white/[0.05] bg-brand-panel/40 backdrop-blur-sm p-8 rounded-lg relative overflow-hidden mb-16">
           {/* Subtle light border line inside */}
           <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/15 to-transparent" />
           
@@ -84,6 +84,24 @@ export default function Hero() {
             </span>
           </div>
         </div>
+
+        {/* Compact Autoplay Video Preview */}
+        <div className="relative max-w-3xl mx-auto rounded-lg overflow-hidden border border-white/[0.08] bg-brand-panel/40 p-2 hover:border-brand-cyan/25 transition-all duration-300 shadow-[0_0_30px_rgba(56,217,255,0.08)]">
+          <div className="relative aspect-video rounded overflow-hidden bg-brand-dark border border-white/5">
+            <iframe
+              className="w-full h-full rounded"
+              src="https://www.youtube.com/embed/aPT_omPh6p8?autoplay=1&mute=1&loop=1&playlist=aPT_omPh6p8&controls=1"
+              title="Crea8.AI Hero Video Preview"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            ></iframe>
+            {/* Muted overlay hint */}
+            <div className="absolute bottom-4 right-4 bg-brand-dark/80 backdrop-blur-sm border border-white/10 px-2.5 py-1 rounded text-[10px] font-mono text-brand-cyan pointer-events-none select-none">
+              🔇 Muted — tap to unmute
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

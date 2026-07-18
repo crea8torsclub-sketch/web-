@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, ShieldAlert, Loader2 } from 'lucide-react';
+import { Check, ShieldAlert } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 // ==========================================
@@ -15,7 +15,6 @@ export default function Enroll() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [source, setSource] = useState('Instagram');
-  const [isRedirecting, setIsRedirecting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validate = () => {
@@ -33,39 +32,35 @@ export default function Enroll() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setIsRedirecting(true);
-
     // Build the message
-    const message = `New Crea8.AI enrollment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nHeard about us via: ${source}`;
+    const message = `New Crea8.AI enrollment:\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nHeard about us via: ${source || "Not specified"}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
+    // Fire the redirect FIRST, synchronously, in the same tab
+    window.location.href = whatsappUrl;
+
     // Optional Supabase logging (fire-and-forget, non-blocking)
     if (supabase) {
-      supabase
-        .from('crea8_leads')
-        .insert([{ 
-          full_name: fullName, 
-          email: email, 
-          phone: phone, 
-          source: source 
-        }])
-        .then(({ error }) => {
-          if (error) {
-            console.error('Error inserting lead to Supabase:', error);
-          }
-        });
+      (async () => {
+        try {
+          await supabase
+            .from('crea8_leads')
+            .insert([{ 
+              full_name: fullName, 
+              email: email, 
+              phone: phone, 
+              source: source 
+            }]);
+        } catch (err) {
+          console.error('Error inserting lead to Supabase:', err);
+        }
+      })();
     }
-
-    // Wait for 1 second to show the "Redirecting you to WhatsApp..." message
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
-      setIsRedirecting(false);
-    }, 1000);
   };
 
   const benefits = [
@@ -117,18 +112,7 @@ export default function Enroll() {
           <div className="lg:col-span-6 relative">
             <div className="hairline-border bg-brand-panel p-8 rounded-lg relative overflow-hidden shadow-2xl">
               
-              {/* Redirecting Overlay State */}
-              {isRedirecting && (
-                <div className="absolute inset-0 bg-brand-panel/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center p-6 text-center">
-                  <Loader2 size={40} className="text-brand-cyan animate-spin mb-4" />
-                  <h3 className="font-space font-bold text-xl text-brand-text-primary">
-                    Redirecting you to WhatsApp...
-                  </h3>
-                  <p className="text-sm text-brand-text-muted mt-2 max-w-xs">
-                    We are launching secure channel to complete your enrollment reservation.
-                  </p>
-                </div>
-              )}
+
 
               <h3 className="font-space font-extrabold text-2xl text-brand-text-primary mb-2">
                 Enroll now…

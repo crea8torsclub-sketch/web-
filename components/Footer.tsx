@@ -85,9 +85,7 @@ export default function Footer() {
               <li>
                 <a 
                   href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-brand-text-muted hover:text-brand-cyan transition-colors inline-flex items-center gap-2"
+                  className="text-sm text-brand-text-muted hover:text-brand-cyan transition-colors inline-flex items-center gap-2 cursor-pointer"
                 >
                   <MessageSquare size={14} className="text-brand-cyan" />
                   Chat on WhatsApp
