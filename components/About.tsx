@@ -1,6 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import { Check } from 'lucide-react';
 
 export default function About() {
+  const [isPlaying, setIsPlaying] = useState(false);
   const features = [
     {
       title: 'Practical over theoretical',
@@ -60,7 +64,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Thumbnail Placeholder */}
+          {/* Right Column: Video Embed card */}
           <div className="lg:col-span-5">
             <div className="relative group rounded-lg overflow-hidden border border-white/[0.08] bg-brand-panel/60 p-2.5 hover:border-brand-cyan/20 transition-all duration-500 shadow-2xl">
               {/* Glassmorphic border glow effect on hover */}
@@ -68,38 +72,43 @@ export default function About() {
               
               {/* Inner video card container */}
               <div className="relative aspect-video rounded bg-brand-dark overflow-hidden flex items-center justify-center border border-white/5">
-                {/* Simulated grid background inside player */}
-                <div className="absolute inset-0 bg-grid opacity-10" />
+                {!isPlaying ? (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                    onClick={() => setIsPlaying(true)}
+                  >
+                    {/* Simulated grid background inside player */}
+                    <div className="absolute inset-0 bg-grid opacity-10" />
 
-                {/* Simulated course content abstract design */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6">
-                  {/* Badge */}
-                  <div className="flex justify-between items-start">
-                    <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/15">
-                      LIVE COURSE WORKFLOW
-                    </span>
-                    <span className="font-mono text-[9px] text-white/40">
-                      04:12
-                    </span>
+                    {/* Simulated course content abstract design */}
+                    <div className="absolute inset-0 flex flex-col justify-between p-6">
+                      {/* Badge */}
+                      <div className="flex justify-between items-start">
+                        <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/15">
+                          LIVE COURSE WORKFLOW
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Central Play Button */}
+                    <button 
+                      className="relative z-10 w-16 h-16 rounded-full bg-brand-blue/90 text-brand-text-primary flex items-center justify-center border border-brand-cyan/35 shadow-[0_0_20px_rgba(56,217,255,0.15)] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(56,217,255,0.35)] transition-all duration-300"
+                      aria-label="Play video"
+                    >
+                      <svg className="w-6 h-6 fill-current text-white translate-x-0.5" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
                   </div>
-
-                  {/* Flow graphic visual mock */}
-                  <div className="flex flex-col gap-2">
-                    <div className="h-1.5 w-1/3 bg-brand-blue/40 rounded animate-pulse" />
-                    <div className="h-1.5 w-2/3 bg-brand-cyan/30 rounded" />
-                    <div className="h-1.5 w-1/2 bg-white/10 rounded" />
-                  </div>
-                </div>
-
-                {/* Central Play Button */}
-                <a 
-                  href="#demo"
-                  className="relative z-10 w-16 h-16 rounded-full bg-brand-blue/90 text-brand-text-primary flex items-center justify-center border border-brand-cyan/35 shadow-[0_0_20px_rgba(56,217,255,0.15)] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(56,217,255,0.35)] transition-all duration-300 cursor-pointer"
-                >
-                  <svg className="w-6 h-6 fill-current text-white translate-x-0.5" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </a>
+                ) : (
+                  <iframe
+                    className="w-full h-full rounded"
+                    src="https://www.youtube.com/embed/aPT_omPh6p8?autoplay=1"
+                    title="Crea8.AI Course Walkthrough"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
 
               {/* Bottom caption / banner */}

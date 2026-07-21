@@ -1,12 +1,29 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
+import { WHATSAPP_ENROLL_URL } from '@/lib/constants';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [pillStyle, setPillStyle] = useState<{ left: number; width: number; opacity: number }>({ left: 0, width: 0, opacity: 0 });
+  const linkRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
+
+  useEffect(() => {
+    const activeEl = linkRefs.current[activeSection];
+    if (activeEl) {
+      setPillStyle({
+        left: activeEl.offsetLeft,
+        width: activeEl.offsetWidth,
+        opacity: 1,
+      });
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+    }
+  }, [activeSection]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,26 +82,35 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center hover:opacity-90">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Crea8.AI" className="h-8 w-auto object-contain" />
+          <Logo className="h-8 w-auto object-contain" />
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-2 relative py-1.5 px-1.5 bg-white/[0.02] border border-white/5 rounded-full backdrop-blur-sm">
+          {/* Sliding Pill Indicator */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 h-8 bg-brand-cyan/10 border border-brand-cyan/20 rounded-full transition-all duration-350 ease-out pointer-events-none"
+            style={{
+              left: `${pillStyle.left}px`,
+              width: `${pillStyle.width}px`,
+              opacity: pillStyle.opacity,
+            }}
+          />
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+            const id = link.href.substring(1);
+            const isActive = activeSection === id;
             return (
               <a
                 key={link.name}
+                ref={(el) => {
+                  linkRefs.current[id] = el;
+                }}
                 href={link.href}
-                className={`text-sm font-sans font-medium transition-colors relative py-1 ${
+                className={`text-sm font-sans font-medium transition-colors relative py-1.5 px-4 rounded-full z-10 ${
                   isActive ? 'text-brand-cyan' : 'text-brand-text-muted hover:text-brand-cyan'
                 }`}
               >
                 {link.name}
-                <span className={`absolute bottom-0 left-0 right-0 h-[2px] bg-brand-cyan transition-all duration-300 transform origin-left ${
-                  isActive ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-                }`} />
               </a>
             );
           })}
@@ -93,7 +119,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <a
-            href="#enroll"
+            href={WHATSAPP_ENROLL_URL}
             className="px-5 py-2.5 rounded-lg text-sm font-space font-bold bg-brand-blue hover:bg-brand-blue/90 text-brand-text-primary border border-brand-cyan/20 hover:border-brand-cyan/50 hover:shadow-[0_0_20px_rgba(56,217,255,0.35)] transition-all duration-150 hover:scale-[1.02] active:scale-[0.97] inline-block cursor-pointer"
           >
             Enroll Now
@@ -131,7 +157,7 @@ export default function Navbar() {
             );
           })}
           <a
-            href="#enroll"
+            href={WHATSAPP_ENROLL_URL}
             onClick={() => setIsOpen(false)}
             className="w-full text-center px-5 py-3 rounded-lg font-space font-bold bg-brand-blue text-brand-text-primary border border-brand-cyan/25 hover:shadow-[0_0_20px_rgba(56,217,255,0.35)] transition-all duration-150 hover:scale-[1.02] active:scale-[0.97] cursor-pointer"
           >

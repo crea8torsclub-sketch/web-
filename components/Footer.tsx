@@ -1,5 +1,6 @@
 import { MessageSquare } from 'lucide-react';
 import { WHATSAPP_NUMBER } from './Enroll';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   const exploreLinks = [
@@ -26,8 +27,7 @@ export default function Footer() {
             <div>
               {/* Logo */}
               <a href="#" className="flex items-center hover:opacity-90 mb-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo.png" alt="Crea8.AI" className="h-7 w-auto object-contain" />
+                <Logo className="h-7 w-auto object-contain" />
               </a>
               <p className="text-sm text-brand-text-muted max-w-sm leading-relaxed mb-6 font-sans">
                 Master-level AI content skills for creators, marketers, and entrepreneurs
@@ -91,8 +91,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@crea8.ai" className="text-sm text-brand-text-muted hover:text-brand-cyan transition-colors">
-                  hello@crea8.ai
+                <a href="mailto:crea8tors.club@gmail.com" className="text-sm text-brand-text-muted hover:text-brand-cyan transition-colors">
+                  crea8tors.club@gmail.com
                 </a>
               </li>
             </ul>

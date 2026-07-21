@@ -1,0 +1,6 @@
+export default function Logo({ className = 'h-8 w-auto object-contain' }: { className?: string }) {
+  return (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img src="/logo.png" alt="Crea8.AI" className={className} />
+  );
+}
