@@ -3,7 +3,7 @@ import { WHATSAPP_ENROLL_URL } from '@/lib/constants';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 md:pt-32 md:pb-24 overflow-hidden bg-grid">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-12 md:pt-32 md:pb-24 overflow-hidden bg-grid">
       {/* Glow overlays */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-glow-blue opacity-50 pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 translate-x-1/2 translate-y-1/2 w-[500px] h-[500px] bg-glow-cyan opacity-40 pointer-events-none" />

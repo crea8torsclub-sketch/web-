@@ -10,6 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number; opacity: number }>({ left: 0, width: 0, opacity: 0 });
+  const [heroVisible, setHeroVisible] = useState(true);
   const linkRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
   useEffect(() => {
@@ -46,7 +47,9 @@ export default function Navbar() {
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.target.id === 'hero') {
+          setHeroVisible(entry.isIntersecting);
+        } else if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
       });
@@ -54,7 +57,7 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-    const sections = ['about', 'modules', 'demo', 'testimonials', 'faq'];
+    const sections = ['hero', 'about', 'modules', 'demo', 'testimonials', 'faq'];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -74,7 +77,11 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+      heroVisible 
+        ? 'opacity-0 -translate-y-4 pointer-events-none' 
+        : 'opacity-100 translate-y-0 pointer-events-auto'
+    } ${
       scrolled 
         ? 'bg-brand-dark/90 backdrop-blur-md border-b border-white/5 py-4' 
         : 'bg-transparent py-6'
