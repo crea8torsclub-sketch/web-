@@ -16,15 +16,15 @@ export default function Hero() {
         {/* Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-brand-panel border border-brand-cyan/15 hover:border-brand-cyan/35 transition-colors duration-300 mb-4 md:mb-8">
           <span className="font-mono text-xs font-bold text-brand-cyan uppercase tracking-wider">
-            ⚡ Master-level AI content skills
+            ⚡ ഈ Skill കൊണ്ട് നിങ്ങൾക്ക് പണം ഉണ്ടാക്കാം,
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="font-space font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-primary tracking-tight leading-[0.95] mb-3 md:mb-6 select-none">
-          ZERO TO PRO <br />
+        <h1 className="font-space font-extrabold text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-primary tracking-tight leading-[1.05] mb-3 md:mb-6 select-none">
+          Zero യിൽ നിന്ന് <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan drop-shadow-[0_0_30px_rgba(56,217,255,0.15)]">
-            AI CREATOR
+            AI CREATOR PRO ആവൂ
           </span>
         </h1>
 

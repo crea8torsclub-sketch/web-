@@ -9,6 +9,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       name: 'Anju',
+      role: 'Student',
       initials: 'AJ',
       quote: 'As a girl , എനിക്ക് വീട്ടിലിരുന്ന് ആരെയും ആശ്രയിക്കാതെ തന്നെ AI Content creation ചെയ്യാൻ പറ്റുമെന്നുള്ള confident വന്നത് നിങ്ങളെ Courseയിൽ ജോയിൻ ചെയ്തപ്പോളാണ്. Thanks for this team & supportive community🥹🙌',
     },
