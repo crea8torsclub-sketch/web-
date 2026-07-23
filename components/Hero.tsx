@@ -22,7 +22,7 @@ export default function Hero() {
 
         {/* Heading */}
         <h1 className="font-space font-extrabold text-[clamp(1.85rem,4.8vw,4.5rem)] text-brand-text-primary tracking-normal leading-[1.35] mb-4 md:mb-8 select-none">
-          Zero യിൽ നിന്ന് <br />
+          ZERO യിൽ നിന്ന് <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan drop-shadow-[0_0_30px_rgba(56,217,255,0.15)] pb-1 inline-block">
             AI CREATOR PRO ആവൂ
           </span>
