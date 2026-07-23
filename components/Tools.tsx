@@ -39,7 +39,6 @@ export default function Tools() {
     { name: 'Wan AI', initial: 'W', domain: 'wan.video' },
     { name: 'Gemini', initial: 'G', domain: 'gemini.google.com' },
     { name: 'Google Veo', initial: 'V', domain: 'labs.google' },
-    { name: 'AI Studio', initial: 'A', domain: 'aistudio.google.com' },
     { name: 'Nano Banana', initial: 'N', domain: 'gemini.google.com' },
     { name: 'Claude', initial: 'C', domain: 'claude.ai' },
     { name: 'Hedra', initial: 'H', domain: 'hedra.com' },
