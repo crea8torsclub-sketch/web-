@@ -8,19 +8,27 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      name: 'Maya Reyes',
-      role: 'Freelance Content Marketer',
-      quote: 'I went from posting twice a week to daily across three platforms. The prompt frameworks alone paid for the course in the first month.',
+      name: 'Anju',
+      initials: 'AJ',
+      quote: 'As a girl , എനിക്ക് വീട്ടിലിരുന്ന് ആരെയും ആശ്രയിക്കാതെ തന്നെ AI Content creation ചെയ്യാൻ പറ്റുമെന്നുള്ള confident വന്നത് നിങ്ങളെ Courseയിൽ ജോയിൻ ചെയ്തപ്പോളാണ്. Thanks for this team & supportive community🥹🙌',
     },
     {
-      name: 'Daniel Okafor',
-      role: 'Founder, Studio Nova',
-      quote: 'The video module changed my agency. We now ship client reels in half the time, and margins have never looked better.',
+      name: 'Fathima Rasheed',
+      role: 'Freelancer',
+      initials: 'FR',
+      quote: 'മോണിറ്റൈസേഷൻ മൊഡ്യൂൾ ആണ് എനിക്ക് ഏറ്റവും വാല്യൂ തന്നത് എന്റെ സ്കില്ലുകൾ ഒരു paid സർവീസ് ആക്കി മാറ്റാൻ വേണ്ട exact steps കിട്ടി.',
     },
     {
-      name: 'Sofia Klein',
-      role: 'Solopreneur & Coach',
-      quote: "I'm not techy at all and I still finished every module. The monetization section helped me launch a paid AI service in week three.",
+      name: 'Mubarak',
+      role: 'UG Student',
+      initials: 'M',
+      quote: 'ഞാൻ ഒട്ടും technical skills ഇല്ലാത്ത ആളായിരുന്ന് , എന്നിട്ടും എല്ലാ modules പൂർത്തിയായി മനസിലായി , ഇപ്പോൾ videos ചെയ്തു തുടങ്ങി , ഇതിന്റെ full credits ഞാൻ crea8tors club ന് കൊടുക്കും.',
+    },
+    {
+      name: 'Shinas',
+      role: 'Entrepreneur',
+      initials: 'S',
+      quote: 'ഒരു Business owner എന്ന നിലയിൽ എനിക്ക് ഈ Skill തികച്ചും Useful ആയി. കാരണം സ്വന്തം Companyil ആരുടേയും സഹായം ഇല്ലാതെത്തന്നെ AI Videos ചെയ്യാനും പറഞ്ഞ് കൊടുക്കാനും കയ്യുന്നുണ്ട്.',
     },
   ];
 
@@ -53,7 +61,7 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Card Carousel for Mobile/Tablet */}
           <div className="relative overflow-hidden md:hidden min-h-[300px]">
             <div 
@@ -74,13 +82,20 @@ export default function Testimonials() {
                         &ldquo;{t.quote}&rdquo;
                       </p>
                     </div>
-                    <div>
-                      <h4 className="font-space font-bold text-brand-text-primary text-base">
-                        {t.name}
-                      </h4>
-                      <p className="font-mono text-xs text-brand-cyan uppercase tracking-wider mt-1">
-                        {t.role}
-                      </p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center font-space font-bold text-brand-cyan text-xs shrink-0 select-none">
+                        {t.initials}
+                      </div>
+                      <div>
+                        <h4 className="font-space font-bold text-brand-text-primary text-base">
+                          {t.name}
+                        </h4>
+                        {t.role && (
+                          <p className="font-mono text-xs text-brand-cyan uppercase tracking-wider mt-0.5">
+                            {t.role}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -89,7 +104,7 @@ export default function Testimonials() {
           </div>
 
           {/* Grid Layout for Desktop */}
-          <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {testimonials.map((t, idx) => (
               <div 
                 key={idx} 
@@ -109,13 +124,20 @@ export default function Testimonials() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
-                <div>
-                  <h4 className="font-space font-bold text-brand-text-primary text-sm">
-                    {t.name}
-                  </h4>
-                  <p className="font-mono text-[10px] text-brand-cyan uppercase tracking-wider mt-1">
-                    {t.role}
-                  </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center font-space font-bold text-brand-cyan text-xs shrink-0 select-none">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <h4 className="font-space font-bold text-brand-text-primary text-sm">
+                      {t.name}
+                    </h4>
+                    {t.role && (
+                      <p className="font-mono text-[10px] text-brand-cyan uppercase tracking-wider mt-0.5">
+                        {t.role}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

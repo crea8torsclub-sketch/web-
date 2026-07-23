@@ -34,20 +34,18 @@ function ToolIcon({ name, domain, initial }: ToolIconProps) {
 export default function Tools() {
   const toolsList = [
     { name: 'ChatGPT', initial: 'C', domain: 'openai.com' },
-    { name: 'Grok', initial: 'G', domain: 'grok.com' },
     { name: 'ElevenLabs', initial: 'E', domain: 'elevenlabs.io' },
     { name: 'Higgsfield', initial: 'H', domain: 'higgsfield.ai' },
     { name: 'Wan AI', initial: 'W', domain: 'wan.video' },
     { name: 'Gemini', initial: 'G', domain: 'gemini.google.com' },
     { name: 'Google Veo', initial: 'V', domain: 'labs.google' },
-    { name: 'Pixverse AI', initial: 'P', domain: 'pixverse.ai' },
-    { name: 'Heygen', initial: 'H', domain: 'heygen.com' },
     { name: 'AI Studio', initial: 'A', domain: 'aistudio.google.com' },
     { name: 'Nano Banana', initial: 'N', domain: 'gemini.google.com' },
     { name: 'Claude', initial: 'C', domain: 'claude.ai' },
     { name: 'Hedra', initial: 'H', domain: 'hedra.com' },
     { name: 'Google Flow', initial: 'F', domain: 'labs.google' },
-    { name: 'Synthesia', initial: 'S', domain: 'synthesia.io', isSynthesia: true },
+    { name: 'Kling AI', initial: 'K', domain: 'klingai.com' },
+    { name: 'Midjourney', initial: 'M', domain: 'midjourney.com' },
   ];
 
   return (
@@ -72,11 +70,7 @@ export default function Tools() {
           {toolsList.map((tool, idx) => (
             <div
               key={idx}
-              className={`hairline-border bg-brand-panel/40 backdrop-blur-sm p-5 rounded-lg flex flex-col items-center justify-center transition-all duration-300 ${
-                tool.isSynthesia 
-                  ? 'col-span-2 md:col-span-1 md:col-start-auto lg:col-span-1 lg:col-start-4' 
-                  : ''
-              }`}
+              className="hairline-border bg-brand-panel/40 backdrop-blur-sm p-5 rounded-lg flex flex-col items-center justify-center transition-all duration-300 group hover:-translate-y-1"
             >
               {/* Neutral Icon Placeholder Slot */}
               <div className="w-14 h-14 rounded-md bg-gradient-to-br from-brand-blue/15 to-brand-cyan/5 border border-white/[0.05] flex items-center justify-center shadow-inner relative overflow-hidden group-hover:border-brand-cyan/30 transition-colors">
