@@ -14,16 +14,16 @@ export default function Hero() {
 
       <div className="relative max-w-5xl mx-auto px-6 text-center z-10">
         {/* Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-brand-panel border border-brand-cyan/15 hover:border-brand-cyan/35 transition-colors duration-300 mb-4 md:mb-8">
-          <span className="font-mono text-xs font-bold text-brand-cyan uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-panel border border-brand-cyan/20 hover:border-brand-cyan/40 transition-colors duration-300 mb-4 md:mb-8 max-w-full">
+          <span className="font-mono text-[11px] sm:text-xs font-semibold text-brand-cyan tracking-normal leading-normal">
             ⚡ ഈ Skill കൊണ്ട് നിങ്ങൾക്ക് പണം ഉണ്ടാക്കാം,
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="font-space font-extrabold text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-primary tracking-tight leading-[1.05] mb-3 md:mb-6 select-none">
+        <h1 className="font-space font-extrabold text-[clamp(1.85rem,4.8vw,4.5rem)] text-brand-text-primary tracking-normal leading-[1.35] mb-4 md:mb-8 select-none">
           Zero യിൽ നിന്ന് <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan drop-shadow-[0_0_30px_rgba(56,217,255,0.15)]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan drop-shadow-[0_0_30px_rgba(56,217,255,0.15)] pb-1 inline-block">
             AI CREATOR PRO ആവൂ
           </span>
         </h1>

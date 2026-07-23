@@ -59,7 +59,7 @@ export default function Tools() {
           <span className="font-mono text-xs font-bold text-brand-cyan tracking-widest uppercase mb-4 block">
             ⚙ INDUSTRY-STANDARD TOOLS
           </span>
-          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4 leading-tight">
+          <h2 className="font-space font-extrabold text-3xl md:text-5xl text-brand-text-primary mb-4 leading-relaxed tracking-normal">
             ഈ course-ൽ ഉപയോഗിക്കുന്ന Tools
           </h2>
         </div>
